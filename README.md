@@ -1,3 +1,3 @@
 # Welcome to Hannah's page!
 
-Hi, thanks for visiting my page. Okay, goobye!
+Hi, thanks for visiting my page. Okay, goodbye!
