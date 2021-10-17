@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <style>
+
+        body{
+            background: rgba(0, 0, 0, 0.4);
+            text-align: center;
+            color: white;
+            font-family: 'Century Gothic',sans-serif;
+        }
+        svg{
+            background-color: white; 
+            opacity: 0.6;
+            width: 1000px;
+            height: 500px;
+        }
+        button {
+            background-color: #707571;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        button:hover {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+            rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+            }
+    </style>
+    <title>HW 10-12</title>
+  </head>
+  <body>
+  <h1 id="title">Colors of the Seasons</h1>
+  <h3><a href="/index.html">Back to main page</a></h3>
+
+     <svg id="rect-viz">
+
+    </svg>
+    <div>
+        <button onclick="drawRects(winter)">Winter</button>
+        <button onclick="drawRects(spring)">Spring</button>
+        <button onclick="drawRects(summer)">Summer</button>
+        <button onclick="drawRects(fall)">Fall</button>
+    </div>
+  <script>
+
+     var winter = [
+         {
+             color: "darkBlue",
+             value: 35110150
+         },
+         {
+             color: "medBlue",
+             value: 132165184
+         },
+         {
+             color: "lightBlue",
+             value: 179218241
+         },
+         {
+             color: "lightGray",
+             value: 203203203
+         },
+         {
+             color: "darkGray",
+             value: 112117113
+         }
+     ];
+
+     var spring = [
+         {
+             color: "lightPink",
+             value: 243168188
+         },
+         {
+             color: "orange",
+             value: 245173148
+         },
+         {
+             color: "lightYellow",
+             value: 255241166
+         },
+         {
+             color: "green",
+             value: 180249165
+         },
+         {
+             color: "lightBlue",
+             value: 179218241
+         }
+     ];
+
+     var summer = [
+         {
+             color: "darkBlue",
+             value: 35110150
+         },
+         {
+             color: "teal",
+             value: 21178211
+         },
+         {
+             color: "darkYellow",
+             value: 2552150
+         },
+         {
+             color: "orange",
+             value: 245173148
+         },
+         {
+             color: "darkPink",
+             value: 25589143
+         }
+     ];
+     
+     var fall = [
+         {
+             color: "darkBrown",
+             value: 966020
+         },
+         {
+             color: "red",
+             value: 156396
+         },
+
+         {
+             color: "orange",
+             value: 245173148
+         },
+
+         {
+             color: "darkYellow",
+             value: 2552150
+         },
+         {
+             color: "lightBrown",
+             value: 958438
+         }
+     ];
+
+
+     function drawRects(dataArray) {
+        var rects = d3.select("#rect-viz")
+        .selectAll("rect")
+        .data(dataArray, function(d) {
+            return d.color;
+        });
+    
+        function rectPosition() {
+          return Math.random() * 600 + 100;
+        }
+    rects.enter()
+        .append("rect")
+        .attr("fill", function(d) {
+            if (d.color =="darkBlue") {
+                return "#236E96";
+            }
+            else if (d.color == "medBlue") {
+                return "#84A5B8";
+            }
+            else if (d.color =="lightBlue") {
+                return "#B3DAF1";
+            }
+            else if (d.color =="lightGray") {
+                return "#CBCBCB";
+            }
+            else if (d.color =="darkGray") {
+                return "#707571";
+            }
+            else if (d.color =="lightPink") {
+                return "#F3A8BC";
+            }
+            else if (d.color =="orange") {
+                return "#F5AD94";
+            }
+            else if (d.color =="lightYellow") {
+                return "#FFF1A6";
+            }
+            else if (d.color =="green") {
+                return "#B4F9A5";
+            }
+            else if (d.color =="teal") {
+                return "#15B2D3";
+            }
+            else if (d.color =="darkYellow") {
+                return "#FFD700";
+            }
+            else if (d.color =="darkPink") {
+                return "#FF598F";
+            }
+            else if (d.color =="darkBrown") {
+                return "#603C14";
+            }
+            else if (d.color =="red") {
+                return "#9C2706";
+            }
+            else if (d.color =="lightBrown") {
+                return "#5F5426";
+            }
+        })
+        .attr("x", "100")
+        .attr("y", "100")
+        .attr("width", "200")
+        .attr("height", "200")
+        .transition().duration(1000)
+        .attr("x", "100");
+//Updating Squares
+    rects
+    .transition().duration(1000)
+    .attr("y", "100")
+    .attr("x", rectPosition);
+
+//Exiting Squares
+    rects.exit()
+    .transition().duration(1000)
+    .attr("width", "0")
+    .remove();
+
+     }
+  </script>
+</body>
+</html>
