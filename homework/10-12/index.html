@@ -7,16 +7,15 @@
     <style>
 
         body{
-            background: rgba(0, 0, 0, 0.4);
+            background: #628082;
             text-align: center;
             color: white;
             font-family: 'Century Gothic',sans-serif;
         }
         svg{
             background-color: white; 
-            opacity: 0.6;
             width: 1000px;
-            height: 500px;
+            height: 400px;
         }
         button {
             background-color: #707571;
@@ -42,6 +41,7 @@
      <svg id="rect-viz">
 
     </svg>
+    <h3>Click (and keep clicking) to view each season's color palette!</h3>
     <div>
         <button onclick="drawRects(winter)">Winter</button>
         <button onclick="drawRects(spring)">Spring</button>
@@ -204,7 +204,7 @@
                 return "#5F5426";
             }
         })
-        .attr("x", "100")
+        .attr("x", rectPosition)
         .attr("y", "100")
         .attr("width", "200")
         .attr("height", "200")
