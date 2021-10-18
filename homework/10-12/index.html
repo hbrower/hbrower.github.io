@@ -43,10 +43,11 @@
     </svg>
     <h3>Click (and keep clicking) to view each season's color palette!</h3>
     <div>
-        <button onclick="drawRects(winter)">Winter</button>
-        <button onclick="drawRects(spring)">Spring</button>
-        <button onclick="drawRects(summer)">Summer</button>
-        <button onclick="drawRects(fall)">Fall</button>
+        <button onclick="drawRects(winter); document.body.style.backgroundColor = '#900C3F';">Winter</button>
+        <button onclick="drawRects(spring); document.body.style.backgroundColor = '#E48CFC';">Spring</button>
+        <button onclick="drawRects(summer); document.body.style.backgroundColor = '#FF6000';">Summer</button>
+        <button onclick="drawRects(fall); document.body.style.backgroundColor = '#0D3E12';">Fall</button>
+        <br><br><button onclick="window.location.reload();">Clear</button>
     </div>
   <script>
 
