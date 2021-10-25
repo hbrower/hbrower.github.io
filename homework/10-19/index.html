@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <style>
+
+    </style>
+    <title>HW 10-19</title>
+  </head>
+  <body style="background-image:url(cannabis-background.jpg); background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <center>
+  <div style="background-color: white; width: 500px; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; margin-top: 100px;">
+  <h1 id="title" style="text-align: center; ">Public Dataset(s) for Final Project</h1>
+  <h3 style="text-align: center; "><a href="/index.html">Back to main page</a></h3>
+  <p style="text-align: left; ">
+        <b><a href="https://crime-data-explorer.fr.cloud.gov/pages/explorer/crime/arrest">Arrests for Marijuana Possession by state (2020)</a></b>
+        <br>This database can narrow down arrest records by state. 
+        <br>I want to look at the marijana arrest data state-by-state (not total), which may require me to create my own .csv file by pulling each state's stats and combining them in my own spreadsheet.
+        <br>Here is an example of a dataset of 3 states and their marijana arrest numbers: <a href="Arrests-for-Marijuana-Possession-by-State-2020.csv">CSV File</a>
+  </p>
+  <p style="text-align: left;">
+        <b><a href="https://disa.com/map-of-marijuana-legality-by-state">Marijuana Legalization by State</a></b>
+        <br>By state, categories are: Legalized, Medical and Decriminalized, Medical, Decriminalized, CBD Only, and Fully illegal. 
+        <br>I want to use this info to create a color-coordinated map (similar to the one on the website) to compare arrest records to
+  </p>
+  <p style="text-align: left;">
+    Ideally, I'd like to also include data on how much money states earn from marijuana incarcerations, but I'm not confident I'll be able to easily obtain this info. Plus, it may be too much work for this project.
+  </p>
+  </div>
+</center>
+
+
+
+  <script>
+      //Class Practice//
+      //Loading csv data//
+    
+      d3.csv("data.csv", function(error, data) {
+
+        //Loop through an array to change the String 'value'//
+        //into a number
+        data.forEach(function(row) {
+            row.value = parseFloat(row.value)
+        });
+          console.log(data);
+      
+
+      var usaData = data.filter(function(row) {
+          return row.country =="usa";
+        });
+
+      console.log("usaData", usaData);
+
+      var minimumValue = d3.min(data, function(row) {
+          return row.value;
+     });
+
+      console.log("min", minimumValue);
+
+      var groupedData = d3.nest()
+        .key(function(d){
+            return d.country;
+        })
+        .entries(data);
+
+        console.log("groupedData", groupedData);
+
+        var countryMapping = {
+            can: "Canada",
+            usa: "United States",
+            mex: "Mexico"
+    };
+    data.forEach(function(row){
+        row.fillName = countryMapping[row.country];
+    });
+
+        console.log(data);
+    });
+    
+
+      //Loading text data//
+
+      d3.text("data.txt", function(error, data) {
+      if (error) {
+        console.log(error);
+      }
+      else {
+        console.log("we've got data!");
+        console.log(data);
+      }
+
+      });
+
+      //Loading json data//
+
+      d3.json("data.json", function (error,data) {
+          console.log(data);
+      });
+
+      //Loading json APIs//
+      var url = "https://datausa.io/api/data?measures=Population&year=latest";
+
+        d3.json(url, function(error, data) {
+        console.log(data);
+    });
+
+  </script>
+</body>
+</html>
