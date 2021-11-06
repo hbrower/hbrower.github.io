@@ -65,7 +65,6 @@
         var svg = d3.select("#chart")
           .attr("width", width)
           .attr("height", height)
-          .style("fill", "#FF33BB")
           .style("stroke", "#0D4BDE");
   
         var dataRange = d3.range(1, dataMax + 1);
@@ -154,6 +153,7 @@
               .attr("class", "bar")
               .call(zeroState)
               .attr("width", barWidth)
+              .style("fill", "#FF33BB")
               .attr("x", function(d, i) {
                 return x(i + 1);
               })
@@ -175,7 +175,8 @@
               })
               .attr("y", function(d) {
                 return y(d.users);
-              });
+              })
+              .style("fill", "#FFC300");
   
             // Bar "exit" events and animation
             bars.exit()
