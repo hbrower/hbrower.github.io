@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    font-family:'Courier New', Courier, monospace;
+    background-color: honeydew;
+    background-position: center;
+    background-size: cover;
+  }
+  
+#banner {
+    background-image: url(cannabis-background.jpg);
+    background-position: center, 50%;
+    background-size: cover;
+    padding: 20vh 20px;
+    text-align: center;
+  }
+
+  .section {
+    display: flex;
+    padding: 50px;
+  }
+  
+  .section p {
+    flex: 1;
+    background-color: white;
+  }
+  
+  .section svg {
+    border: 5px solid green;
+    background-color: white;
+    flex: 2;
+    height: 300px;
+    margin: 20px;
+  }
+
+  @media (max-width: 600px) {
+  .section {
+    flex-direction: column;
+  }
+  .section svg {
+    flex: none;
+  }
+}
+
+#tooltip {
+    display: none;
+    position: absolute;
+    background: white;
+    
+  }
