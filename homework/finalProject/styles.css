@@ -78,7 +78,6 @@ a:active {
 
 #tooltip {
   background: white;
-  color: #000;
   border: 1px solid black;
   border-radius: 5px;
   display: none;
@@ -92,6 +91,14 @@ a:active {
   width: 100%;
   margin: 20px;
   background: transparent;
+}
+
+#section1{
+  color: #777;
+  background-color:white;
+  text-align:center;
+  padding:50px 80px;
+  text-align: justify;
 }
 
 /* Turn off parallax scrolling for tablets and phones */
