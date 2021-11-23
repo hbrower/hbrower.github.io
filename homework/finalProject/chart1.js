@@ -7,7 +7,7 @@ d3.select("#chart1")
       .style("left", d3.event.pageX + 20 + "px");
 
     tooltip.select("#title").html("State");
-    tooltip.select("#value").html("Arrests");
+    tooltip.select("#value").html("# of Arrests");
 
   })
   .on("mouseout", function() {
