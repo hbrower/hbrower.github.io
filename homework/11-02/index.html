@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>HW 11-02</title>
+    <title>Bar Chart Practice</title>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <style>
         body {
@@ -38,9 +38,18 @@
 
     </center>
     <svg id="chart">
-        <g id="shapes"></g>
-        <g id="x"></g>
-        <g id="y"></g>
+      <defs>
+        <linearGradient id="colorGradient">
+        </linearGradient>
+      </defs>
+      <g id="shapes"></g>
+      <g id="x"></g>
+      <g id="y"></g>
+      <g id="scale">
+        <rect id="scaleRect" fill="url(#colorGradient)" stroke="black" />
+        <g id="scaleAxis"></g>
+      </g>
+      <g id="legend"></g>   
       </svg>
   
       <script>
@@ -49,8 +58,8 @@
         var frequency = 5 * 1000;
         var margin = {
           top: 50,
-          right: 50,
-          bottom: 50,
+          right: 150,
+          bottom: 150,
           left: 50
         };
   
@@ -61,11 +70,30 @@
         var height = window.innerHeight;
         var chartWidth = width - margin.left - margin.right;
         var chartHeight = height - margin.top - margin.bottom;
-  
+
+        var scaleWidth = 500;
+        var scaleHeight = 50;
+        var scaleX = margin.left + chartWidth / 2 - (scaleWidth / 2);
+        var scaleY = margin.top + chartHeight + 40;
+
         var svg = d3.select("#chart")
           .attr("width", width)
           .attr("height", height)
           .style("stroke", "#0D4BDE");
+
+        var scale = svg.select("#scale")
+          .attr("transform", "translate(" + scaleX + ", " + scaleY + ")");
+
+        scale.select("#scaleRect")
+          .attr("width", scaleWidth)
+          .attr("height", scaleHeight);
+
+        var legendX = margin.left + chartWidth;
+        var legendY = margin.top;
+        var legendSize = 20;
+
+        var legend = svg.select("#legend")
+          .attr("transform", "translate(" + legendX + ", " + legendY + ")");
   
         var dataRange = d3.range(1, dataMax + 1);
   
@@ -87,10 +115,85 @@
             });
             if (data.length > dataMax) data.pop();
             console.log(data);
+            if (data.length === dataMax) clearInterval(myInterval);
   
             var maxUsers = d3.max(data, function(d) {
               return d.users;
             });
+
+            var minUsers =  d3.min(data, function(d) {
+              return d.users;
+            });
+
+            var barColor = d3.scaleSequential(d3.interpolateViridis)
+              .domain([0, maxUsers]);
+
+            var stops = d3.range(0, 1.25, 0.25);
+
+            svg.select("#colorGradient").selectAll("stop")
+            .data(stops).enter()
+            .append("stop")
+              .attr("offset", function(d) {
+                return d * 100 + "%";
+              })
+              .attr("stop-color", function(d) {
+                return barColor(d * maxUsers);
+              });
+
+              var scaleX = d3.scaleLinear()
+                .domain([0, maxUsers])
+                .range([0, scaleWidth]);
+
+              var scaleAxis = d3.axisBottom(scaleX);
+
+              scale.select("#scaleAxis")
+                .attr("transform", "translate(0, " + scaleHeight + ")")
+                .transition().duration(frequency / 2)
+                .call(scaleAxis);
+
+            //Color legend Stuff
+            var legendData = data.map(function(d) {
+              return d.users;
+            });
+
+            legendData = legendData
+            .filter(function(d, i) {
+              return legendData.indexOf(d) === i;
+            })
+            .sort(function(a, b) {
+              return b - a;
+            });
+
+            var legendRects = legend.selectAll("rect")
+              .data(legendData);
+
+            var legendRectsEnter = legendRects.enter().append("rect");
+
+            legendRects.merge(legendRectsEnter)
+              .attr("x", 0)
+              .attr("y", function(d, i) {
+                return i * legendSize + i * 10;
+              })
+              .attr("fill", barColor)
+              .attr("width", legendSize)
+              .attr("height", legendSize);
+            
+              var legendTexts = legend.selectAll("text")
+                .data(legendData);
+
+              var legendTextsEnter = legendTexts.enter().append("text")
+                .attr("baseline-shift", "-100%");
+
+              legendTexts.merge(legendTextsEnter)
+                .attr("x", legendSize + 5)
+                .attr("y", function(d, i) {
+                  return i * legendSize + i * 10;
+                })
+                .text(function(d) {
+                  return d;
+                });
+
+            //Bar Chart Stuff
   
             var barHeight = d3.scaleLinear()
               .domain([0, maxUsers])
@@ -153,7 +256,6 @@
               .attr("class", "bar")
               .call(zeroState)
               .attr("width", barWidth)
-              .style("fill", "#FF33BB")
               .attr("x", function(d, i) {
                 return x(i + 1);
               })
@@ -163,8 +265,12 @@
                 })
                 .attr("y", function(d) {
                   return y(d.users);
+                })
+                .attr("fill", function(d) {
+                  return barColor(d.users);
                 });
-  
+
+
             // Bar "update" events and animation
             bars.transition().duration(frequency / 2)
               .attr("height", function(d) {
@@ -176,7 +282,9 @@
               .attr("y", function(d) {
                 return y(d.users);
               })
-              .style("fill", "#FFC300");
+              .attr("fill", function(d) {
+                return barColor(d.users);
+              });
   
             // Bar "exit" events and animation
             bars.exit()
@@ -189,7 +297,7 @@
         }
   
         fetchData();
-        setInterval(fetchData, frequency);
+        var myInterval = setInterval(fetchData, frequency);
   
       </script>
   </body>

@@ -101,6 +101,10 @@ a:active {
   padding:50px 80px;
 }
 
+.bar {
+  fill: steelblue;
+}
+
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1024px) {
   .bgimg-1, .bgimg-2, .bgimg-3 {
