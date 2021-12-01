@@ -54,15 +54,14 @@
           })
 
             .on("mousemove", function(d) {
-
               var tooltip = d3.select("#tooltip")
                 .style("display", "block")
                 .style("top", d3.event.pageY + 20 + "px")
                 .style("left", d3.event.pageX + 20 + "px");
           
               tooltip.select("#title").html(d.data.state);
-              tooltip.select("#value").html(d.data.arrests);
-          
+              tooltip.select("#arrests").html("Arrests: " + d.data.arrests);
+              tooltip.select("#population").html("Population: " + d.data.population);
             })
             .on("mouseout", function() {
               d3.select("#tooltip")
@@ -77,7 +76,14 @@
         .append("text")
           .attr("x", function(d){ return d.x0+10})    // +10 to adjust position (more right)
           .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
-          .text(function(d){ return d.data.state})
+          .text(function(d){
+             if (d.data.arrests >=800) {
+              return d.data.abbr;
+          }
+            else if (d.data.arrests <=800) {
+              return "";
+          }
+        })
           .attr("font-size", "10px")
           .attr("fill", "black")
     })
