@@ -1,31 +1,12 @@
-//Tooltip
-d3.select("#chart1")
-  .on("mousemove", function() {
-
-    var tooltip = d3.select("#tooltip")
-      .style("display", "block")
-      .style("top", d3.event.pageY + 20 + "px")
-      .style("left", d3.event.pageX + 20 + "px");
-
-    tooltip.select("#title").html("State");
-    tooltip.select("#value").html("# of Arrests");
-
-  })
-  .on("mouseout", function() {
-    d3.select("#tooltip")
-      .style("display", "none");
-  });
-
 //Treemap Chart
 
     // set the dimensions and margins of the graph
-    var margin = {top: 0, right: 0, bottom: 0, left: 0},
-      width = 1400 - margin.left - margin.right,
-      height = 500 - margin.top - margin.bottom;
+    var margin = {top: 10, right: 10, bottom: 10, left: 10},
+      width = parseFloat(d3.select("#chart1").style("width"), 10) - margin.left - margin.right,
+      height = 600 - margin.top - margin.bottom;
     
     // append the svg object to the body of the page
     var svg = d3.select("#chart1")
-    .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -43,9 +24,11 @@ d3.select("#chart1")
       d3.treemap()
         .size([width, height])
         .padding(4)
+        .tile(d3.treemapSquarify)
         (root)
     
     console.log(root.leaves())
+    
       // use this information to add rectangles:
 
       svg
@@ -58,10 +41,36 @@ d3.select("#chart1")
           .attr('width', function (d) { return d.x1 - d.x0; })
           .attr('height', function (d) { return d.y1 - d.y0; })
           .style("stroke", "black")
-          .style("fill", "#69b3a2");
+          .attr("fill", function(d) {
+            if (d.data.legal =="0") {
+                return "#FF5733";
+            }
+            else if (d.data.legal =="1") {
+                return "#DAF7A6";
+            }
+            else if (d.data.legal =="2") {
+              return "#255818";
+          }
+          })
+
+            .on("mousemove", function(d) {
+
+              var tooltip = d3.select("#tooltip")
+                .style("display", "block")
+                .style("top", d3.event.pageY + 20 + "px")
+                .style("left", d3.event.pageX + 20 + "px");
+          
+              tooltip.select("#title").html(d.data.state);
+              tooltip.select("#value").html(d.data.arrests);
+          
+            })
+            .on("mouseout", function() {
+              d3.select("#tooltip")
+                .style("display", "none");
+            });
     
       // and to add the text labels
-      svg
+      svg 
         .selectAll("text")
         .data(root.leaves())
         .enter()
