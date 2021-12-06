@@ -1,17 +1,17 @@
 //Treemap Chart
 
     // set the dimensions and margins of the graph
-    var margin = {top: 10, right: 10, bottom: 10, left: 10},
-      width = parseFloat(d3.select("#chart1").style("width"), 10) - margin.left - margin.right,
-      height = 600 - margin.top - margin.bottom;
+    var margin1 = {top: 10, right: 10, bottom: 10, left: 10},
+      width1 = parseFloat(d3.select("#chart1").style("width"), 10) - margin1.left - margin1.right,
+      height1 = 600 - margin1.top - margin1.bottom;
     
     // append the svg object to the body of the page
     var svg = d3.select("#chart1")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
+      .attr("width", width1 + margin1.left + margin1.right)
+      .attr("height", height1 + margin1.top + margin1.bottom)
     .append("g")
       .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+            "translate(" + margin1.left + "," + margin1.top + ")");
     
     // Read data
     d3.csv('state_data.csv', function(data) {
@@ -22,10 +22,11 @@
     (data);
   root.sum(function(d) { return +d.arrests })   
       d3.treemap()
-        .size([width, height])
+        .size([width1, height1])
         .padding(4)
         .tile(d3.treemapSquarify)
         (root)
+        
     
     console.log(root.leaves())
     
@@ -52,8 +53,10 @@
               return "#255818";
           }
           })
+          
 
             .on("mousemove", function(d) {
+
               var tooltip = d3.select("#tooltip")
                 .style("display", "block")
                 .style("top", d3.event.pageY + 20 + "px")
@@ -62,6 +65,7 @@
               tooltip.select("#title").html(d.data.state);
               tooltip.select("#arrests").html("Arrests: " + d.data.arrests);
               tooltip.select("#population").html("Population: " + d.data.population);
+
             })
             .on("mouseout", function() {
               d3.select("#tooltip")

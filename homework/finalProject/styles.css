@@ -93,6 +93,13 @@ a:active {
   margin: 20px;
   background: transparent;
 }
+#chart2{
+  border: 2px solid rgb(96, 122, 143);
+  height: 600px;
+  width: 100%;
+  margin: 20px;
+  background: white;
+}
 
 #section1{
   color: #777;
@@ -101,10 +108,30 @@ a:active {
   align-content: center;
   padding:50px 80px;
 }
-
-.bar {
-  fill: steelblue;
+table {
+  border: 1px solid white;
 }
+
+#helpButton {
+  transition: all .5s ease;
+  color: #fff;
+  border: 3px solid white;
+  font-family:'Montserrat', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
+  font-size: 17px;
+  background-color : transparent;
+  padding: 10px;
+  outline: none;
+  border-radius: 4px;
+}
+#helpButton:hover {
+  color: #001F3F;
+  background-color: #fff;
+}
+
+
 
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1024px) {

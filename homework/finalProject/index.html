@@ -15,7 +15,7 @@
         <span class="border">Cannabis Criminal Injustice
         <h3><a href="/index.html">Back to main page</a></h3>
             <p>
-            This project will highlight the hypocrisy of states profiting off of the marijuana industry while people are still incarcerated on nonviolent marijuana-related charges. 
+            This project aims to highlight the hypocrisy of states profiting off of the marijuana industry while people are still incarcerated on nonviolent marijuana-related charges. 
             </p>
             <p>
             Created by Hannah Brower
@@ -24,8 +24,21 @@
         </div>
 
         <div id="section1">
-        <h3>Arrests for Marijuana Possession by state (2020)</h3>
+        <h3>Arrests for Marijuana Possession by state</h3>
         <p>This database shows marijuana-related arrest offense counts in the United States by state for the year 2020.</p>
+        <center>
+            <svg width="500" height="150">
+            <rect x="50" y="50" rx="20" ry="20" width="50" height="50"
+            style="fill:#255818;stroke:black;stroke-width:2;" />
+            <text x="110" y="75" class="small">Legalized</text>
+            <rect x="200" y="50" rx="20" ry="20" width="50" height="50"
+            style="fill:#DAF7A6;stroke:black;stroke-width:2;" />
+            <text x="260" y="75" class="small">Medical</text>
+            <rect x="350" y="50" rx="20" ry="20" width="50" height="50"
+            style="fill:#FF5733;stroke:black;stroke-width:2;" />
+            <text x="410" y="75" class="small">Fully Illegal</text>
+          </svg>
+        </center>
         <svg id="chart1"></svg>
         <p>Data sourced from <a href="https://crime-data-explorer.fr.cloud.gov/pages/explorer/crime/arrest" style="color:black;">Federal Bureau of Investigation Crime Data Explorer.</a></p>
         </div>
@@ -36,10 +49,98 @@
         </div>
         </div>
 
-        <div style="position:relative;">
+        <div id="section2" style="position:relative;">
         <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
-            <svg id="chart2"></svg>
-            <p>Marijuana Tax Revenue: A State-by-State Breakdown. I want to show the side-by-side of states that profit off of marijuana-related tax revenue, and their arrest records.</p>
+            <!-- Add 2 buttons -->
+            <!--
+            <button onclick="update(data1)">2020 Marijuana Tax Revenue</button>
+            <button onclick="update(data2)">Estimated Annual Marijuana Excise Tax Revenue</button>
+            <svg id="chart2"></svg> 
+            -->
+            <h3 style="color:white;">Marijuana Tax Revenue: A State-by-State Breakdown.</h3>
+            <p><b>Marijuana tax revenue by state in 2020</b>
+            <br>The first chart will show the revenue collected in states with operational marijuana programs in 2020. Total tax collected varies depending on state population, how long the program has been established, and the method of taxation.</p>
+            <p>This is a temporary table, soon to be a bar chart</p>
+            <table style="width:50%;">
+                <tr>
+                  <th>State</th>
+                  <th>2020 marijuana tax revenue</th>
+                </tr>
+                <tr>
+                  <td>Alaska</td>
+                  <td>$23,864,759</td>
+                </tr>
+                <tr>
+                  <td>California</td>
+                  <td>$1,031,879,926</td>
+                </tr>
+                  <tr>
+                  <td>Colorado</td>
+                  <td>$387,480,110</td>
+                </tr>
+                  <tr>
+                  <td>Illinois</td>
+                  <td>$52,783,471</td>
+                </tr>
+                  <tr>
+                  <td>Massachusetts</td>
+                  <td>$81,734,083</td>
+                </tr>
+                  <tr>
+                  <td>Nevada</td>
+                  <td>$105,180,947</td>
+                </tr>
+                  <tr>
+                  <td>Oregon</td>
+                  <td>$133,150,349</td>
+                </tr>
+                  <tr>
+                  <td>Washington</td>
+                  <td>$469,200,000</td>
+                </tr>
+              </table>
+            <p><b>Estimated annual marijuana excise tax revenue from fully operational market</b>
+            <br>A number of states have legalized recreational marijuana but have a less-than-fully operational market. The Tax Foundation has estimated excise tax revenue for states with a market that has been operational for at least three years. The second chart will show how much these states may stand to make once their markets are fully established.</p>
+            <p>This is a temporary table, soon to be a bar chart</p>
+            <table style="width:50%;">
+                <tr>
+                  <th>State</th>
+                  <th>Estimated Annual Marijuana Excise Tax Revenue</th>
+                </tr>
+                <tr>
+                    <td>Arizona</td>
+                    <td>$183,169,705</td>
+                  </tr>
+                  <tr>
+                    <td>DC</td>
+                    <td>$26,605,996</td>
+                  </tr>
+                    <tr>
+                    <td>Maine</td>
+                    <td>$50,685,850</td>
+                  </tr>
+                    <tr>
+                    <td>Michigan</td>
+                    <td>$288,183,493</td>
+                  </tr>
+                    <tr>
+                    <td>Montana</td>
+                    <td>$35,142,502</td>
+                  </tr>
+                    <tr>
+                    <td>New Jersey</td>
+                    <td>$158,974,353</td>
+                  </tr>
+                    <tr>
+                    <td>South Dakota</td>
+                    <td>$14,270,281</td>
+                  </tr>
+                    <tr>
+                    <td>Vermont</td>
+                    <td>$27,313,974</td>
+                  </tr>
+                </table>
+            <center><p>Data sourced from <a href="https://www.fool.com/research/marijuana-tax-revenue-by-state/">The Motley Fool</a></p></center>
         </div>
         </div>
         <div id="tooltip">
@@ -56,44 +157,14 @@
 
         <div style="position:relative;">
         <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
-            <p>
-                <b>This is an email I recieved from The Last Prisoner Project. I'm putting it here temporarily to reference.</b>
-            </p>
-            <div>
-              <p>Hi Hannah—</p>
-  
-              <p>While many people do cite us as the originator of the 40,000 number — it actually stems from analysis done at NORML and is likely derived from a <a href="https://bjs.ojp.gov/content/pub/pdf/dudsfp04.pdf">2007 Bureau of Justice Statistics report</a> that (a) breaks out incarcerated populations by substance-specific drug offenses and then (b) applies those proportions to state and federal prison populations. However, this number is (a) old and (b) does not include the number of people serving shorter, drug-related sentences in local jails (there were 182,000 of those people confined in 2011, though we don't have the breakdown by substances). Nor does that number include the vast majority of the 758,000 people arrested for marijuana offenses that year.</p> 
-              
-              <p>That said, we believe that even if this calculation were done using a more recent BJS report, it would still dramatically undercount the number of people currently incarcerated due to cannabis-related charges. Reasons below.</p> 
-              <ul>
-                  <li>This extrapolation fails to fully account for the following as these populations are often the most difficult to get accurate reporting data from:
-              
-              <br>- People incarcerated in local & county jails — a significant number, given that there were 545,602 arrests for cannabis in 2019. A great primer from contextualizing this can be found <a href="https://www.hrw.org/news/2016/10/12/us-disastrous-toll-criminalizing-drug-use">here</a>. 
-              
-              <br>- Individuals currently incarcerated in our country's (1,700+) juvenile correctional facilities, Indian county jails, immigration detention centers, etc.
-              
-              <br>- Individuals incarcerated <a href="https://www.prisonpolicy.org/reports/pie2020.html">pre-trial & pre-sentencing</a>. 
-              
-              <br>- Individuals on supervised release who have been re-incarcerated due to a marijuana-related technical parole / probation violation. 
-              
-              <br>- We know that personal drug use for individuals on supervised release (and we know those drug-related violations are disproportionately marijuana-related, especially in cities, source, source,) is one of the largest drivers of mass incarceration.</li>
-              
-             <li>Furthermore, as BJS itself acknowledges — their criminal justice statistics are subject to under and/or misreporting for other reasons, including but not limited to; 
-              
-              <br>- The implications of different record-keeping requirements across local, state, federal, and tribal systems, record loss/destruction, dirty data, etc.
-              
-              <br>- Reporting offenses by the most serious offense category means that someone who was incarcerated for a marijuana offense may not be reported as such.
-              
-              <br>- For instance, someone selling marijuana who has a firearm in their home may be reported as a weapons offense rather than a drug offense.
-              
-              <br>- Don’t even get us started on the nexus between marijuana and immigration-related violations.</li>
-              
-              <li>Furthermore, an incarcerated individual who was charged with multiple offenses after a marijuana-related arrest may have technically served the sentence of the marijuana offense, and thus is not captured in the data.</li> 
-              
-              <p>All that to say, for many complicated reasons (many—though not all—of them stemming from our country's  byzantine approach to criminal justice record-keeping), we cannot provide an exact number of people incarcerated for cannabis. And unfortunately, we have yet to see any other nonprofit or governmental report that does that.</p>
-              
-              <p>Wish we could be more helpful.  Good luck with your project!</p>
-        </div>
+            <center>
+                <h3 style="color:white;"><a href="https://www.lastprisonerproject.org/">The Last Prisoner Project</a> was founded in 2019 out of the belief that no one should remain incarcerated for cannabis offenses. We brought together a team of cannabis industry leaders, criminal and social justice advocates, policy and education experts, and leaders in social justice and drug policy reform to work to end this fundamental injustice. We are committed to freeing every last prisoner of the unjust war on drugs, starting with the estimated <b><u>40,000</u></b> individuals imprisoned for cannabis.</h3>
+                <p><iframe width="960" height="510" src="https://www.youtube.com/embed/fWY_TIFiMmo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+                <form action="https://www.lastprisonerproject.org/takeaction" method="get" target="_blank">
+                    <button id="helpButton" type="submit">HOW YOU CAN HELP</button>
+                 </form>
+            </center>
+
         </div>
 
         <div class="bgimg-1">
@@ -103,6 +174,7 @@
         </div>
     
     <script src="chart1.js"></script>
+    <script src="chart2.js"></script>
 
 </body>
 </html>
