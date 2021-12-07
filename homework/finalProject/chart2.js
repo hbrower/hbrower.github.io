@@ -1,5 +1,5 @@
 
-                // create datasets
+                // create datasets values are in $millions
                 var data1 = [
                     {group: "Alaska", value: 24},
                     {group: "California", value: 1032},
