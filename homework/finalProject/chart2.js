@@ -30,7 +30,7 @@
                      height2 = 600 - margin2.top - margin2.bottom;
                  
                  // append the svg object to the body of the page
-                 var svg = d3.select("#chart2")
+                 var svg2 = d3.select("#chart2")
                    .append("svg")
                      .attr("width", width2 + margin2.left + margin2.right)
                      .attr("height", height2 + margin2.top + margin2.bottom)
@@ -39,26 +39,26 @@
                            "translate(" + margin2.left + "," + margin2.top + ")");
                  
                  // X axis
-                 var x = d3.scaleBand()
+                 var x2 = d3.scaleBand()
                    .range([ 0, width2 ])
                    .domain(data1.map(function(d) { return d.group; }))
                    .padding(0.2);
-                 svg.append("g")
+                 svg2.append("g")
                    .attr("transform", "translate(0," + height2 + ")")
-                   .call(d3.axisBottom(x))
+                   .call(d3.axisBottom(x2))
                  
                  // Add Y axis
-                 var y = d3.scaleLinear()
+                 var y2 = d3.scaleLinear()
                    .domain([10, 1200])
                    .range([ height2, 0]);
-                 svg.append("g")
+                 svg2.append("g")
                    .attr("class", "myYaxis")
-                   .call(d3.axisLeft(y));
+                   .call(d3.axisLeft(y2));
                  
                  // A function that create / update the plot for a given variable:
                  function update(data) {
                  
-                   var u = svg.selectAll("rect")
+                   var u = svg2.selectAll("rect")
                      .data(data)
                  
                    u
@@ -67,10 +67,10 @@
                      .merge(u)
                      .transition()
                      .duration(1000)
-                       .attr("x", function(d) { return x(d.group); })
-                       .attr("y", function(d) { return y(d.value); })
-                       .attr("width", x.bandwidth())
-                       .attr("height", function(d) { return height2 - y(d.value); })
+                       .attr("x", function(d) { return x2(d.group); })
+                       .attr("y", function(d) { return y2(d.value); })
+                       .attr("width", x2.bandwidth())
+                       .attr("height", function(d) { return height2 - y2(d.value); })
                        .attr("fill", "#69b3a2")
                  }
                  

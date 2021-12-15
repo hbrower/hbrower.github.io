@@ -1,7 +1,7 @@
 body, html {
   height: 100%;
   margin: 0;
-  font: 400 15px/1.8 "Lato", sans-serif;
+  font: 400 20px/1.8 "Lato", sans-serif;
   color: #777;
 }
 
@@ -49,7 +49,7 @@ body, html {
 h3 {
   letter-spacing: 5px;
   text-transform: uppercase;
-  font: 20px "Lato", sans-serif;
+  font: 25px "Lato", sans-serif;
   color: #111;
 }
 a:link {
@@ -108,6 +108,13 @@ a:active {
   align-content: center;
   padding:50px 80px;
 }
+
+#section2{
+  padding:50px 80px;
+  background-color:#282E34;
+  max-width: 1600px;
+}
+
 table {
   border: 1px solid white;
 }
@@ -127,6 +134,26 @@ table {
   border-radius: 4px;
 }
 #helpButton:hover {
+  color: #001F3F;
+  background-color: #fff;
+}
+
+#chartButton{
+  transition: all .5s ease;
+  color: #fff;
+  border: 3px solid white;
+  font-family:'Montserrat', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
+  font-size: 17px;
+  background-color : transparent;
+  padding: 10px;
+  outline: none;
+  border-radius: 4px;
+}
+
+#chartButton:hover {
   color: #001F3F;
   background-color: #fff;
 }

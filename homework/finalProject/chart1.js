@@ -81,10 +81,10 @@
           .attr("x", function(d){ return d.x0+10})    // +10 to adjust position (more right)
           .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
           .text(function(d){
-             if (d.data.arrests >=800) {
+             if (d.data.arrests >=600) {
               return d.data.abbr;
           }
-            else if (d.data.arrests <=800) {
+            else if (d.data.arrests <=600) {
               return "";
           }
         })
