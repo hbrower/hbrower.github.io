@@ -15,7 +15,7 @@
         <span class="border">Cannabis Criminal Injustice
         <h3><a href="/index.html">Back to main page</a></h3>
             <p style="text-align: center; max-width: 1600px;">
-            This project aims to highlight the hypocrisy of states profiting off of the marijuana industry while people are still incarcerated on nonviolent marijuana-related charges. 
+            This project aims to highlight the hypocrisy of states profiting off the marijuana industry while people are still incarcerated on nonviolent marijuana-related charges. 
             </p>
             <p>
             Created by Hannah Brower
@@ -25,7 +25,8 @@
 
         <div id="section1">
         <h3>Arrests for Marijuana Possession by state</h3>
-        <p>This database shows marijuana-related arrest offense counts in the United States by state for the year 2020.</p>
+        <p style="text-align: left; max-width: 1600px;">As the United States begins to decriminalize marijuana possession, a major new industry has emerged. Still, there remains a fundamental injustice suffered by those with non-lethal marijuana possession convictions. Ideally, I would have liked to analyze state incarceration numbers, but I was only able to collect state arrest records.</p>
+        <p style="text-align: left;">This database shows marijuana-related arrest offense counts in the United States by state for the year 2020.</p>
         <center>
             <svg width="600" height="150">
             <rect x="50" y="50" rx="20" ry="20" width="50" height="50"
@@ -41,7 +42,8 @@
         </center>
         <svg id="chart1"></svg>
         <p style="font-size:small;">Data sourced from <a href="https://crime-data-explorer.fr.cloud.gov/pages/explorer/crime/arrest" style="color:black;">Federal Bureau of Investigation Crime Data Explorer.</a></p>
-        </div>
+      <p style="text-align: left;">While it makes sense for some of these states, like Tennessee, North Carolina, and South Carolina to have high arrest rates due to their marijuana legality statuses, it is concerning to see such high arrest numbers for states like Texas, New Jersey, and New York, where marijuana is either legal or decriminalized.</p>  
+      </div>
 
         <div class="bgimg-2">
         <div class="caption">
@@ -61,92 +63,258 @@
             
             <div id="chart2"></div> -->
             
-            <h3 style="color:white;">Marijuana Tax Revenue: A State-by-State Breakdown.</h3>
-            <p><b>Marijuana tax revenue by state in 2020</b>
-            <br>The first chart will show the revenue collected in states with operational marijuana programs in 2020. Total tax collected varies depending on state population, how long the program has been established, and the method of taxation.</p>
-            <p>This is a temporary table, soon to be a bar chart</p>
-            <table style="width:50%;">
-                <tr>
-                  <th>State</th>
-                  <th>2020 marijuana tax revenue</th>
-                </tr>
-                <tr>
-                  <td>Alaska</td>
-                  <td>$23,864,759</td>
-                </tr>
-                <tr>
-                  <td>California</td>
-                  <td>$1,031,879,926</td>
-                </tr>
-                  <tr>
-                  <td>Colorado</td>
-                  <td>$387,480,110</td>
-                </tr>
-                  <tr>
-                  <td>Illinois</td>
-                  <td>$52,783,471</td>
-                </tr>
-                  <tr>
-                  <td>Massachusetts</td>
-                  <td>$81,734,083</td>
-                </tr>
-                  <tr>
-                  <td>Nevada</td>
-                  <td>$105,180,947</td>
-                </tr>
-                  <tr>
-                  <td>Oregon</td>
-                  <td>$133,150,349</td>
-                </tr>
-                  <tr>
-                  <td>Washington</td>
-                  <td>$469,200,000</td>
-                </tr>
-              </table>
-            <p><b>Estimated annual marijuana excise tax revenue from fully operational market</b>
-            <br>A number of states have legalized recreational marijuana but have a less-than-fully operational market. The Tax Foundation has estimated excise tax revenue for states with a market that has been operational for at least three years. The second chart will show how much these states may stand to make once their markets are fully established.</p>
-            <p>This is a temporary table, soon to be a bar chart</p>
-            <table style="width:50%;">
-                <tr>
-                  <th>State</th>
-                  <th>Estimated Annual Marijuana Excise Tax Revenue</th>
-                </tr>
-                <tr>
-                    <td>Arizona</td>
-                    <td>$183,169,705</td>
-                  </tr>
-                  <tr>
-                    <td>DC</td>
-                    <td>$26,605,996</td>
-                  </tr>
-                    <tr>
-                    <td>Maine</td>
-                    <td>$50,685,850</td>
-                  </tr>
-                    <tr>
-                    <td>Michigan</td>
-                    <td>$288,183,493</td>
-                  </tr>
-                    <tr>
-                    <td>Montana</td>
-                    <td>$35,142,502</td>
-                  </tr>
-                    <tr>
-                    <td>New Jersey</td>
-                    <td>$158,974,353</td>
-                  </tr>
-                    <tr>
-                    <td>South Dakota</td>
-                    <td>$14,270,281</td>
-                  </tr>
-                    <tr>
-                    <td>Vermont</td>
-                    <td>$27,313,974</td>
-                  </tr>
-                </table>
-                <br>
+            <h3 style="color:white;">Marijuana Tax Revenue</h3>
+            <p>Marijuana is still considered to be a Schedule 1 controlled substance on the Federal level. That puts it in the same category as heroin. And yet, as states begin to pass legislature legalizing cannabis, early legalizers have made over $1 billion in tax revenue from the industry already.</p>
+            <p>At the beginning of the global pandemic, when the nation attempted a quarantine and civilians were asked to stay home and practice social distancing, marijuana dispensaries were deemed to be an essential business in California, Colorado, Connecticut, Florida, Hawaii, Illinois, Iowa, Maine, Maryland, Massachusetts, Michigan, Montana, Nevada, New Jersey, New Mexico, New York, Ohio, Oklahoma, Pennsylvania, Rhode Island, Vermont, Washington, and D.C. In other states, however, you could still be arrested for buying or selling pot.</p>
+            <p>Explore below to learn more about how much money states made from marijuana-related taxes, and how much money could be made in states who have yet to legalize the substance.</p>
+            <div style="color:black;">
+            <button class="accordion">Marijuana tax revenue by state in 2020</button>
+            <div class="panel">
+
+            <p>This table shows the revenue collected in states with operational marijuana programs in 2020. Total tax collected varies depending on state population, how long the program has been established, and the method of taxation.</p>
+                        <table style="width:50%;">
+                            <tr>
+                              <th>State</th>
+                              <th>2020 marijuana tax revenue</th>
+                            </tr>
+                            <tr>
+                              <td>Alaska</td>
+                              <td>$23,864,759</td>
+                            </tr>
+                            <tr>
+                              <td>California</td>
+                              <td>$1,031,879,926</td>
+                            </tr>
+                              <tr>
+                              <td>Colorado</td>
+                              <td>$387,480,110</td>
+                            </tr>
+                              <tr>
+                              <td>Illinois</td>
+                              <td>$52,783,471</td>
+                            </tr>
+                              <tr>
+                              <td>Massachusetts</td>
+                              <td>$81,734,083</td>
+                            </tr>
+                              <tr>
+                              <td>Nevada</td>
+                              <td>$105,180,947</td>
+                            </tr>
+                              <tr>
+                              <td>Oregon</td>
+                              <td>$133,150,349</td>
+                            </tr>
+                              <tr>
+                              <td>Washington</td>
+                              <td>$469,200,000</td>
+                            </tr>
+                          </table>
+            </div>
+
+            <button class="accordion">Estimated annual marijuana excise tax revenue from fully operational market</button>
+            <div class="panel">
+              <p>A number of states have legalized recreational marijuana but have a less-than-fully operational market. The Tax Foundation has estimated excise tax revenue for states with a market that has been operational for at least three years. This chart shows how much these states may stand to make once their markets are fully established.</p>
+                        <table style="width:50%;">
+                            <tr>
+                              <th>State</th>
+                              <th>Estimated Annual Marijuana Excise Tax Revenue</th>
+                            </tr>
+                            <tr>
+                                <td>Arizona</td>
+                                <td>$183,169,705</td>
+                              </tr>
+                              <tr>
+                                <td>DC</td>
+                                <td>$26,605,996</td>
+                              </tr>
+                                <tr>
+                                <td>Maine</td>
+                                <td>$50,685,850</td>
+                              </tr>
+                                <tr>
+                                <td>Michigan</td>
+                                <td>$288,183,493</td>
+                              </tr>
+                                <tr>
+                                <td>Montana</td>
+                                <td>$35,142,502</td>
+                              </tr>
+                                <tr>
+                                <td>New Jersey</td>
+                                <td>$158,974,353</td>
+                              </tr>
+                                <tr>
+                                <td>South Dakota</td>
+                                <td>$14,270,281</td>
+                              </tr>
+                                <tr>
+                                <td>Vermont</td>
+                                <td>$27,313,974</td>
+                              </tr>
+                            </table>
+            </div>
+
+            <button class="accordion">How much revenue are other states leaving on the table?</button>
+            <div class="panel">
+              <p> Using average excise tax figures and the number of marijuana-using residents in each state, the Tax Foundation estimated the potential excise tax revenue with a market established for at least three years.</p>
+            <p>Here's what they found:</p>
+                        <table style="width:50%;">
+                            <tr>
+                              <th>State</th>
+                              <th>Potential Revenue</th>
+                            </tr>
+                            <tr>
+                                <td>Alabama</td>
+                                <td>$92,217,856</td>
+                              </tr>
+                              <tr>
+                                <td>Arkansas</td>
+                                <td>$59,314,764</td>
+                              </tr>
+                                <tr>
+                                <td>Connecticut</td>
+                                <td>$97,696,550</td>
+                              </tr>
+                                <tr>
+                                <td>Delaware</td>
+                                <td>$24,566,974</td>
+                              </tr>
+                                <tr>
+                                <td>Florida</td>
+                                <td>$448,740,070</td>
+                              </tr>
+                                <tr>
+                                <td>Georgia</td>
+                                <td>$198,400,771</td>
+                              </tr>
+                                <tr>
+                                <td>Hawaii</td>
+                                <td>$28,453,985</td>
+                              </tr>
+                                <tr>
+                                <td>Idaho</td>
+                                <td>$33,295,445</td>
+                              </tr>
+                                <tr>
+                                <td>Indiana</td>
+                                <td>$157,009,061</td>
+                              </tr>
+                                <tr>
+                                <td>Iowa</td>
+                                <td>$50,183,462</td>
+                              </tr>
+                                <tr>
+                                <td>Kansas</td>
+                                <td>$42,058,743</td>
+                              </tr>
+                                <tr>
+                                <td>Kentucky</td>
+                                <td>$83,008,154</td>
+                              </tr>
+                                <tr>
+                                <td>Louisiana</td>
+                                <td>$81,616,779</td>
+                              </tr>
+                                <tr>
+                                <td>Maryland</td>
+                                <td>$135,837,117</td>
+                              </tr>
+                                <tr>
+                                <td>Minnesota</td>
+                                <td>$122,072,389</td>
+                              </tr>
+                                <tr>
+                                <td>Mississippi</td>
+                                <td>$47,304,242</td>
+                              </tr>
+                                <tr>
+                                <td>Missouri</td>
+                                <td>$119,222,374</td>
+                              </tr>
+                                <tr>
+                                <td>Nebraska</td>
+                                <td>$35,975,930</td>
+                              </tr>
+                                <tr>
+                                <td>New Hampshire</td>
+                                <td>$44,163,575</td>
+                              </tr>
+                                <tr>
+                                <td>New Mexico</td>
+                                <td>$61,692,434</td>
+                              </tr>
+                                <tr>
+                                <td>New York*</td>
+                                <td>$431,141,823</td>
+                              </tr>
+                                <tr>
+                                <td>North Carolina</td>
+                                <td>$182,947,622</td>
+                              </tr>
+                                <tr>
+                                <td>North Dakota</td>
+                                <td>$13,231,599</td>
+                              </tr>
+                                <tr>
+                                <td>Ohio</td>
+                                <td>$220,827,478</td>
+                              </tr>
+                                <tr>
+                                <td>Oklahoma</td>
+                                <td>$67,680,000</td>
+                              </tr>
+                                <tr>
+                                <td>Pennsylvania</td>
+                                <td>$244,553,615</td>
+                              </tr>
+                                <tr>
+                                <td>Rhode Island</td>
+                                <td>$35,455,500</td>
+                              </tr>
+                                <tr>
+                                <td>South Carolina</td>
+                                <td>$96,680,914</td>
+                              </tr>
+                                <tr>
+                                <td>Tennessee</td>
+                                <td>$132,509,552</td>
+                              </tr>
+                                <tr>
+                                <td>Texas</td>
+                                <td>$397,424,206</td>
+                              </tr>
+                                <tr>
+                                <td>Utah</td>
+                                <td>$44,428,908</td>
+                              </tr>
+                                <tr>
+                                <td>Virginia</td>
+                                <td>$139,977,848</td>
+                              </tr>
+                                <tr>
+                                <td>West Virginia</td>
+                                <td>$38,327,540</td>
+                              </tr>
+                                <tr>
+                                <td>Wisconsin</td>
+                                <td>$117,791,078</td>
+                              </tr>
+                                <tr>
+                                <td>Wyoming</td>
+                                <td>$10,054,045</td>
+                              </tr>
+                            </table>
+            </div>
+          </div>
+
+
             <center><p style="font-size:small;">Data sourced from <a href="https://www.fool.com/research/marijuana-tax-revenue-by-state/">The Motley Fool</a></p></center>
-        </div>
+            <p>However, in the end, it’s not really about the money. It’s about social justice and ethics. Studies show that a disproportionate amount of the enforcement and arrests is concentrated on communities of color. In fact, black people are nearly four times more likely than white people to be arrested for marijuana possession, and arresting nonviolent marijuana offenders has been a huge player in the U.S.’s history of mass incarceration.</p>
+            <p>The right thing for the U.S. government to do is to legalize marijuana, regulate it, treat it like a normal industry, and drop the charges on anyone that has been convicted of a non-violent marijuana-related crime.</p>
+            <p>But what can we do to help?</p>
+            
+          </div>
         </div>
         <div id="tooltip">
             <h2 id="title"></h2>
@@ -176,11 +344,28 @@
         <div class="bgimg-1">
         <div class="caption">
         <span class="border"><a href="#top">BACK TO THE TOP</a></span>
+        <p>Hey Dave! Thanks for an amazing semester. I really learned a lot and had fun in the process! :) Hope to see you around. Stay well!</p>
         </div>
         </div>
     
     <script src="chart1.js"></script>
     <script src="chart2.js"></script>
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+      
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.display === "block") {
+            panel.style.display = "none";
+          } else {
+            panel.style.display = "block";
+          }
+        });
+      }
+      </script>
 
 </body>
 </html>
